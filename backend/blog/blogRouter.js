@@ -3,4 +3,5 @@ const router = express.Router();
 const  blog= require("./blogControler.js");
 
 router.get("/all", blog.getpost);
+router.post("/", blog.postBlog);
 module.exports=router
