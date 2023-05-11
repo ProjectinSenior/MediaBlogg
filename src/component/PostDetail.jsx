@@ -5,16 +5,16 @@ import ListGroup from 'react-bootstrap/ListGroup'
 function PostDetail({el}) {
   // Render the PostDetail component, which includes a Card component with a title, date, image, and description
     return (
-      <Card style={{ width: '40rem' }}>
+      <Card style={{ width: '40rem', margin:'50px',alignContent:'center',border:'solid' }}>
+         <Card.Header >{el.name}</Card.Header>
+        <Card.Body >
         
-        <Card.Body>
-
           <Card.Title>{el.title}</Card.Title>
           <ListGroup className="list-group-flush">
           <ListGroup.Item>{el.date}</ListGroup.Item>
         </ListGroup>
          
-          <Card.Img variant="top" src={el.image} style={{width:"450px", height:"450px"}} />
+          <Card.Img variant="top" src={el.image} style={{width:"450px", height:"450px",marginLeft:"80px"}} />
         </Card.Body>
        
         <Card.Body>

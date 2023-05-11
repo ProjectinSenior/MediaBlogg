@@ -20,7 +20,7 @@ function Login() {
     const validationErrors = Validation(values);
     setErrors(validationErrors);
   
-    if (validationErrors.mail === "" && validationErrors.password === "") {
+    if (validationErrors.email === "" && validationErrors.password === "") {
       axios
         .post("http://localhost:8000/api/login", values)
         .then(res => {

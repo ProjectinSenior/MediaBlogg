@@ -8,12 +8,13 @@ import { Route, Routes } from 'react-router-dom';
 import Add from './component/Add'
 import Login from './component/Login';
 import Signup from './component/Signup';
+import Profil from './component/Profil';
 function App() {
  //declare a state variable called data, which will be an empty array initially
   const [data,setdata]=useState([])
   //a function fetchData that will make an HTTP GET request to the server and update the data state with the response
   const fetchData=()=>{
-    axios.get('http://localhost:3000/api/all')
+    axios.get('http://localhost:8000/api/all')
     .then(response=>{
       setdata(response.data)
       console.log(response)}
@@ -34,6 +35,7 @@ function App() {
       <Route path='/Signup' element={<Signup/>}></Route>
         <Route path="/home" element={<Home data={data} />}/>
         <Route path="/add" element={ <Add/> } />
+        <Route path="/profil" element={ <Profil/> } />
    </Routes>
     </div>  
   )
