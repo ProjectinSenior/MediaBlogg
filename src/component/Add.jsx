@@ -9,7 +9,7 @@ const Add = () => {
   const [date, setDate] = useState("");
 
   const handleclick = (body) => {
-    axios.post("http://localhost:3000/post", body);
+    axios.post("http://localhost:8000/post", body);
   };
 
   return (

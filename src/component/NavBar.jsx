@@ -11,7 +11,7 @@ const NavBar = () => {
         <Navbar bg="black" expand="lg" variant='dark' className='navbares'>
               <Container fluid>
                 <Navbar.Brand href="#" style={{color:"white",fontFamily:"fantasy",fontSize:"47px",fontStyle:"oblique"}}>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhUDbUS2o32MI46syViK263AVm_gwuOjZd8w&usqp=CAU" style={{width:"55px",height:"55px"}}/>LOGGI</Navbar.Brand>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhUDbUS2o32MI46syViK263AVm_gwuOjZd8w&usqp=CAU" style={{width:"55px",height:"55px"}}/></Navbar.Brand>
                
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">

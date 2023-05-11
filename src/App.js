@@ -6,6 +6,8 @@ import axios from 'axios';
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import Add from './component/Add'
+import Login from './component/Login';
+import Signup from './component/Signup';
 function App() {
  //declare a state variable called data, which will be an empty array initially
   const [data,setdata]=useState([])
@@ -26,8 +28,10 @@ function App() {
   return (
     
       <div className='app'>
-      <NavBar/>
+      {/* <NavBar/> */}
       <Routes>
+        <Route path='/' element={<Login/>}></Route>
+      <Route path='/Signup' element={<Signup/>}></Route>
         <Route path="/home" element={<Home data={data} />}/>
         <Route path="/add" element={ <Add/> } />
    </Routes>
