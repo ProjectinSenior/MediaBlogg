@@ -10,4 +10,7 @@ router.post("/", blog.postBlog);
 router.post("/postuser",blog.postUser);
 //GET request to fetch user.
 router.post("/login",blog.postValidUser)
+router.get("/user",blog.getuserr)
+router.get("/one/:user_iduser",blog.getOneUser)
+//exp:http://localhost:8000/api/one/1
 module.exports=router

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+//import NavBar from "./NavBar";
 
 const Add = () => {
+
   const [title, setTitle] = useState("");
   const [users_iduser, setUsers_iduser] = useState(1);
   const [image, setImage] = useState("");
@@ -9,13 +11,15 @@ const Add = () => {
   const [date, setDate] = useState("");
 
   const handleclick = (body) => {
-    axios.post("http://localhost:8000/post", body);
+    axios.post("http://localhost:8000/api/", body);
   };
 
   return (
+    <>
+    {/*<NavBar/>*/}
     <div className="card">
       <div className="card-header">
-        <h2 className="card-title"><center>Add Post</center></h2>
+        <h2 className="card-tittle"><center>Add Post</center></h2>
       </div>
       <div className="card-body">
         <div>
@@ -70,6 +74,7 @@ const Add = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
