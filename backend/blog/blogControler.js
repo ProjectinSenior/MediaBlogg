@@ -8,7 +8,7 @@ const getpost = (req, res) => {
      else res.json(result)
     })
     };
-    const postBlog = (req, res) => {
+ const postBlog = (req, res) => {
         Model.addBlog(
         
         req.body.idpost,
@@ -25,6 +25,28 @@ const getpost = (req, res) => {
           }
         })
         };
+   const postUser =(req, res)=> {
+          Model.addUser(req.body, function(err, results) {
+              if(err) res.status(409).send(err);
+              else res.status(201).send(results)
+          })
+      }
+      const postValidUser = (req, res) => {
+        Model.postUser(req.body.email, req.body.password, (err, data) => {
+          if (err) {
+            res.status(409).send(err);
+          } else {
+            if (data.length > 0) {
+              res.json("success");
+            } else {
+              res.json("not success");
+            }
+          }
+        });
+      };
+
 module.exports={getpost,
-                postBlog }
+                postBlog,
+              postUser ,
+            postValidUser }
     
