@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `media`.`user` (
   `iduser` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

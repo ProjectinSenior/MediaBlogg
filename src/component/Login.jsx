@@ -1,59 +1,54 @@
-import React, { useState } from 'react' 
-import {Link, useNavigate }from 'react-router-dom'
-import Validation from './LoginVald'
-import axios from 'axios'
-import './Singup.css'
-import Image1 from  '../img/image1.jpg'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Singup.css';
+import Image1 from '../img/image1.jpg';
+
 function Login() {
-  const[values,setValues]=useState({
-    email:" ",
-    password:""
-  })
-  const [errors,setErrors]=useState({})
-  const navigate =useNavigate();
-  const handleInput=(event)=>{
-    setValues(prev =>({...prev,[event.target.name]:[event.target.value]}))
-  }
-  
-  const handleSubmit = () => {
-    // event.preventDefault();
-    const validationErrors = Validation(values);
-    setErrors(validationErrors);
-  
-    if (validationErrors.email === "" && validationErrors.password === "") {
-      axios
-        .post("http://localhost:8000/api/login", values)
-        .then(res => {
-          if (res.data === "success") {
-            navigate('/home');
-          } else {
-            alert("No record found.");
-          }
-        })
-        .catch(err => console.log(err));
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const handlelogin = async(e)=>{
+    try{
+      e.preventDefault();
+      if(email===""||password===""){
+        return alert("fill the rows please")
+      }
+      const response = await axios.post('http://localhost:3001/api/login',{
+      email:email ,
+      password:password
+    })
+    if (response.data ==="you are logged"){
+      navigate("/home")
+    }else {
+      alert (response.data)
     }
-  };
+  
+  }catch (error){
+    alert("check your password or email")
+  }
+};
  
 
+
   return (
-    <div className='d-flex justify-content-centre align-items-centre bg-primary vh-100' style={{backgroundImage:Image1}}>
+    <div className= ' form' style={{ display: 'flex', backgroundColor: 'primary', height: '65vh' }}>
       
       <div className='bg-white p-3 rounded w-25'>
       <h2>Sign-In </h2>
-        <form action='' onSubmit={handleSubmit}>
+        <form action=''>
           <div className='mb-3'>      
           <label htmlFor='email '> <strong>Your Adress mail </strong></label>
           <input type='email' placeholder='entre your email' name='email'
-          onChange={handleInput} className='form-control rounded-0'/>
-          {errors.email && <span className='text-danger'>{errors.email}</span>}
+         className='form-control rounded-0' onChange={e=>setEmail(e.target.value)}/>
+          
           </div>
           <div className='mb-3'>      
           <label htmlFor='email '><strong>Your Password</strong> </label>
           <input type='password' placeholder='entre your password' name='password'
-          onChange={handleInput}className='form-control rounded-0'/>
-          {errors.password && <span className='text-danger'>{errors.password}</span>} 
+         className='form-control rounded-0' onChange={e=>setPassword(e.target.value)}/>
           </div>
-           <Link to ="./home" type ="submit" className='btn btn-success w-100 rounded-0' onClick={()=>{handleSubmit()}}>log in</Link>
+           <button  type ="submit" className='btn btn-success w-100 rounded-0' onClick={(e)=>{handlelogin(e)}} >login</button>
            <p>click here if you  dont have a account ?</p>
            <Link to="/Signup" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none '>Create Account </Link  >
         </form>

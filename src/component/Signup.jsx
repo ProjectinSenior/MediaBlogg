@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Validation from './SignupVald';
 import axios from 'axios';
-import './Singup.css';
+ import './Singup.css';
 
 function Signup() {
-  const blog = {
-    name: "",
-    email: "",
-    password: ""
-  };
 
-  const [values, setValues] = useState(blog);
-  const [errors, setErrors] = useState({});
-  const navigate =useNavigate();
-  const handleInput = (event) => {
-    setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setErrors(Validation(values));
-    if (errors.name === "" && errors.mail === "" && errors.password === ""){
-      axios.post("http://localhost:8000/api/postuser",values)
-      .then( res => {
-        navigate("/")
-      })
-      .catch(err => console.log(err))
-    }
-  };
-
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleSignup =()=>{
+    axios.post ('http://localhost:3001/api/signup',{
+    name:name,
+     email:email,
+     password:password
+    })
+    .then((succes)=>{
+      navigate('/')
+      console.log(succes)
+    })
+    .catch((err)=>{
+      console.log(err)
+     alert("please don't play with us ")
+    })
+  }
+  
   return (
-    <div className= ' d-flex justify-content-center align-items-center bg-primary vh-100'>
+    <div className= ' form' style={{ display: 'flex', backgroundColor: 'primary', height: '65vh' }}>
       <div className='bg-white p-3 rounded w-25'>
         <h2>Sign-Up</h2>
-        <form action='' onSubmit={handleSubmit}>
+        <form action='' >
           <div className='mb-3'>
             <label htmlFor='name'><strong>Your Full Name</strong></label>
             <input
@@ -42,10 +37,9 @@ function Signup() {
               id='name'
               placeholder='Enter your name'
               name='name'
-              onChange={handleInput}
               className='form-control rounded-0'
+              onChange={e=>setName(e.target.value)}
             />
-            {errors.name && <span className='text-danger'>{errors.name}</span>}
           </div>
           <div className='mb-3'>
             <label htmlFor='email'><strong>Your Address Mail</strong></label>
@@ -53,10 +47,9 @@ function Signup() {
               type='email'
               placeholder='Enter your email'
               name='email'
-              onChange={handleInput}
               className='form-control rounded-0'
+              onChange={e=>setEmail(e.target.value)}
             />
-            {errors.email && <span className='text-danger'>{errors.email}</span>}
           </div>
           <div className='mb-3'>
             <label htmlFor='password'><strong>Your Password</strong></label>
@@ -64,13 +57,12 @@ function Signup() {
               type='password'
               placeholder='Enter your password'
               name='password'
-              onChange={handleInput}
               className='form-control rounded-0'
+              onChange={e=>setPassword(e.target.value)}
             />
-            {errors.password && <span className='text-danger'>{errors.password}</span>}
           </div>
-          <button type='submit' className='btn btn-success w-100 rounded-0'>Save</button>
-          <Link to="/" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Go back</Link>
+          <button type='submit' className='btn btn-success w-100 rounded-0' onClick={handleSignup}>Save</button>
+          <Link to="/login" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Go back</Link>
         </form>
       </div>
     </div>

@@ -6,12 +6,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 //represents a navigation bar
-const NavBar = () => {
+const NavBar = ({setText}) => {
     return (
         <Navbar bg="black" expand="lg" variant='dark' className='navbares'>
               <Container fluid>
                 <Navbar.Brand href="#" style={{color:"white",fontFamily:"fantasy",fontSize:"47px",fontStyle:"oblique"}}>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhUDbUS2o32MI46syViK263AVm_gwuOjZd8w&usqp=CAU" style={{width:"55px",height:"55px"}}/>LOGGI</Navbar.Brand>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhUDbUS2o32MI46syViK263AVm_gwuOjZd8w&usqp=CAU" style={{width:"55px",height:"55px"}}/>    Media Blog</Navbar.Brand>
                
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
@@ -30,6 +30,7 @@ const NavBar = () => {
               className="me-2"
               aria-label="Search"
               style={{backgroundColor:"white", border:"black", color:"black",width:"300px"}}
+              onChange={(e)=>setText(e.target.value)}
               />
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDB-7iexsIGkBSlF5H3sDY6yNnqry14QCoy8mU1xU&s"
              style={{width:"50px",height:"50px", marginRight:"200px"}}/>

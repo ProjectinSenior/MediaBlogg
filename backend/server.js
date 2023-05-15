@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 // const connection=require('./database/index.js')
 const router= require("./blog/blogRouter.js")
-const port = 8000;
+const port = 3001;
 const cors =require ('cors');
 app.use(cors())
 app.use(express.static(path.join(__dirname, '..', 'public')));

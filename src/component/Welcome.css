@@ -1,0 +1,85 @@
+.body {
+  background-color: #10151B;
+   background: url('../imagebackground/background\ 1.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  
+  
+h1 {
+ animation: slideIn 1s ease-in-out;
+  line-height: .95;
+  color: #006680;
+  font-weight: 900;
+  font-size: 150px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+/* h1:hover{
+    color: #f3b7b7;
+} */
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 581px;
+  height: 50%;
+}
+
+.btn {
+  margin: 100 auto;
+  width: 170px;
+  height: 60px;
+  padding: 6px 0 0 3px;
+  border: 2px solid #66fcf1;
+  border-radius: 2px;
+  background: none;
+  font-size: 16px;
+  line-height: 54px;
+  color: #fff;
+  letter-spacing: .25em;
+  text-decoration: none;
+  font-weight: 8ez00;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: background .4s, color .4s;
+  transition: background .4s, color .4s;
+  cursor: pointer;
+  
+}
+
+.btn:hover {
+  background: #66fcf1;
+  color: #10151B;
+}
