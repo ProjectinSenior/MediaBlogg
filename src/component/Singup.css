@@ -1,3 +1,85 @@
+
+body{
+  background-image: url("https://img.freepik.com/photos-premium/espace-travail-noir-moderne-espace-copie-pour-appareils-fournitures-numeriques-affichage-produits-vue-dessus_67155-18538.jpg");
+ /* background-image: url('../img/wepik-export-20230514031017lLGh.jpeg'); */
+  background-size: cover;
+}
 .bg-white {
     --bs-bg-opacity: 0.3;
 }
+.btnk{ 
+    display: inline-flex ;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 12px 19px 0 rgb(213 217 217 / 50%);
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 11px;
+    height: 22px;
+    padding: 0 6px;
+    text-align: center;
+    font-weight: 500;
+    color: #0F1111;
+}
+.btn1:hover {
+    background: #fffbfb;
+    border-color: #ffffff;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+  }
+  
+  .btn2 {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    background: #f17a7a;
+    border: 1px solid #D5D9D9;
+    font-size: 13px;
+    height: 31px;
+    padding: 0 11px;
+    text-align: center;
+    font-weight: 400;
+    color: #0F1111;
+  }
+  
+  .btn2:hover {
+    background-color: #bcc4c4;
+    border-color: #D5D9D9;
+  }
+  .btn3 {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    background: #76fd8d;
+    border: 1px solid #D5D9D9;
+    font-size: 13px;
+    height: 31px;
+    padding: 0 11px;
+    text-align: center;
+    font-weight: 400;
+    color: #0F1111;
+  }
+  
+  .btn3:hover {
+    background-color: #F7FAFA;
+    border-color: #D5D9D9;
+  }
+  .form{
+    width: 100%;
+padding: -2%;
+  min-width: 800px;
+  position: absolute;
+  top: 20%;
+  display: flex;
+  justify-content: center;  
+  align-items: center; 
+   right: 16%;
+  text-align: center;
+  }
+
+  
